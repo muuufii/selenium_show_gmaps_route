@@ -1,0 +1,238 @@
+[
+    {
+        "label": "openpyxl",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "webdriver",
+        "importPath": "selenium",
+        "description": "selenium",
+        "isExtraImport": true,
+        "detail": "selenium",
+        "documentation": {}
+    },
+    {
+        "label": "Options",
+        "importPath": "selenium.webdriver.chrome.options",
+        "description": "selenium.webdriver.chrome.options",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.chrome.options",
+        "documentation": {}
+    },
+    {
+        "label": "Keys",
+        "importPath": "selenium.webdriver.common.keys",
+        "description": "selenium.webdriver.common.keys",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.keys",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriverWait",
+        "importPath": "selenium.webdriver.support.wait",
+        "description": "selenium.webdriver.support.wait",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support.wait",
+        "documentation": {}
+    },
+    {
+        "label": "expected_conditions",
+        "importPath": "selenium.webdriver.support",
+        "description": "selenium.webdriver.support",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support",
+        "documentation": {}
+    },
+    {
+        "label": "search_long_lat",
+        "importPath": "excel",
+        "description": "excel",
+        "isExtraImport": true,
+        "detail": "excel",
+        "documentation": {}
+    },
+    {
+        "label": "search_long_lat",
+        "kind": 2,
+        "importPath": "excel",
+        "description": "excel",
+        "peekOfCode": "def search_long_lat(SelectedTestCase, input ,type):\n    ps = openpyxl.load_workbook('data_order.xlsx')\n    sheet = ps[SelectedTestCase]\n    koordinat = ''\n    for row in sheet.iter_rows(min_row=1, min_col=2, max_row=11, max_col=11, values_only=False):\n        for cell in row:\n            if cell.value == input:\n                if type == \"tujuan\":\n                    tujuan_lat = sheet['M' + str(cell.row)].value\n                    tujuan_lang = sheet['N' + str(cell.row)].value",
+        "detail": "excel",
+        "documentation": {}
+    },
+    {
+        "label": "fill_koordinat_form",
+        "kind": 2,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "def fill_koordinat_form(xpath ,koordinat):\n    wait = WebDriverWait(driver, 20).until(\n        EC.presence_of_element_located((By.XPATH, xpath)))\n    form_input_koordinat = driver.find_element(By.XPATH, xpath)\n    time.sleep(1)\n    form_input_koordinat.send_keys(koordinat)\n    time.sleep(1)\n    form_input_koordinat.send_keys(Keys.ENTER)\n    time.sleep(1)\ndef tambah_tujuan():",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "tambah_tujuan",
+        "kind": 2,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "def tambah_tujuan():\n    time.sleep(1)\n    tambah_tujuan = driver.find_element(By.XPATH, '//*[@id=\"omnibox-directions\"]/div/div[3]/button/div[1]/div' )\n    tambah_tujuan.click()\n# Function =======\n#open browser\nchrome_driver = 'chrome/tes.exe'\noptions = Options()\noptions.add_experimental_option('detach', True)\ndriver = webdriver.Chrome(executable_path=chrome_driver, chrome_options=options)",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "TESTCASE",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "TESTCASE = 'testcase1'\nRESULT_FILE = 'test_result.json'\nopen_file = open('test_result/' + RESULT_FILE)\ndata = json.load(open_file)\n#Get data gudang pickup (gudang asal)\n#breakdown data from result.json\ngudang_pickup = data['response']['pickup']['nama_perusahaan']\nasal_lat_lang = search_long_lat(TESTCASE, gudang_pickup , 'asal')\n#Get data gudang tujuan\nlist_koordinat_tujuan = []",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "RESULT_FILE",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "RESULT_FILE = 'test_result.json'\nopen_file = open('test_result/' + RESULT_FILE)\ndata = json.load(open_file)\n#Get data gudang pickup (gudang asal)\n#breakdown data from result.json\ngudang_pickup = data['response']['pickup']['nama_perusahaan']\nasal_lat_lang = search_long_lat(TESTCASE, gudang_pickup , 'asal')\n#Get data gudang tujuan\nlist_koordinat_tujuan = []\nlist_order = data['response']['list_order'][2]",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "open_file",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "open_file = open('test_result/' + RESULT_FILE)\ndata = json.load(open_file)\n#Get data gudang pickup (gudang asal)\n#breakdown data from result.json\ngudang_pickup = data['response']['pickup']['nama_perusahaan']\nasal_lat_lang = search_long_lat(TESTCASE, gudang_pickup , 'asal')\n#Get data gudang tujuan\nlist_koordinat_tujuan = []\nlist_order = data['response']['list_order'][2]\nfor i in list_order:",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "data = json.load(open_file)\n#Get data gudang pickup (gudang asal)\n#breakdown data from result.json\ngudang_pickup = data['response']['pickup']['nama_perusahaan']\nasal_lat_lang = search_long_lat(TESTCASE, gudang_pickup , 'asal')\n#Get data gudang tujuan\nlist_koordinat_tujuan = []\nlist_order = data['response']['list_order'][2]\nfor i in list_order:\n    id_order = i['id_order']",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "gudang_pickup",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "gudang_pickup = data['response']['pickup']['nama_perusahaan']\nasal_lat_lang = search_long_lat(TESTCASE, gudang_pickup , 'asal')\n#Get data gudang tujuan\nlist_koordinat_tujuan = []\nlist_order = data['response']['list_order'][2]\nfor i in list_order:\n    id_order = i['id_order']\n    tujuan_lat_lang = search_long_lat(TESTCASE, id_order, 'tujuan')\n    list_koordinat_tujuan.append(tujuan_lat_lang)\n#==============================",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "asal_lat_lang",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "asal_lat_lang = search_long_lat(TESTCASE, gudang_pickup , 'asal')\n#Get data gudang tujuan\nlist_koordinat_tujuan = []\nlist_order = data['response']['list_order'][2]\nfor i in list_order:\n    id_order = i['id_order']\n    tujuan_lat_lang = search_long_lat(TESTCASE, id_order, 'tujuan')\n    list_koordinat_tujuan.append(tujuan_lat_lang)\n#==============================\n#Data is Ready",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "list_koordinat_tujuan",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "list_koordinat_tujuan = []\nlist_order = data['response']['list_order'][2]\nfor i in list_order:\n    id_order = i['id_order']\n    tujuan_lat_lang = search_long_lat(TESTCASE, id_order, 'tujuan')\n    list_koordinat_tujuan.append(tujuan_lat_lang)\n#==============================\n#Data is Ready\n# Function =======\ndef fill_koordinat_form(xpath ,koordinat):",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "list_order",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "list_order = data['response']['list_order'][2]\nfor i in list_order:\n    id_order = i['id_order']\n    tujuan_lat_lang = search_long_lat(TESTCASE, id_order, 'tujuan')\n    list_koordinat_tujuan.append(tujuan_lat_lang)\n#==============================\n#Data is Ready\n# Function =======\ndef fill_koordinat_form(xpath ,koordinat):\n    wait = WebDriverWait(driver, 20).until(",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "chrome_driver",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "chrome_driver = 'chrome/tes.exe'\noptions = Options()\noptions.add_experimental_option('detach', True)\ndriver = webdriver.Chrome(executable_path=chrome_driver, chrome_options=options)\ndriver.implicitly_wait(10) # seconds\ndriver.get(\"https://www.google.com/maps/\")\n#open browser\n#Go to search route page\ntime.sleep(5)\nrute_btn = driver.find_element(By.XPATH, '//*[@id=\"hArJGc\"]')",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "options",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "options = Options()\noptions.add_experimental_option('detach', True)\ndriver = webdriver.Chrome(executable_path=chrome_driver, chrome_options=options)\ndriver.implicitly_wait(10) # seconds\ndriver.get(\"https://www.google.com/maps/\")\n#open browser\n#Go to search route page\ntime.sleep(5)\nrute_btn = driver.find_element(By.XPATH, '//*[@id=\"hArJGc\"]')\nrute_btn.click()",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "driver",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "driver = webdriver.Chrome(executable_path=chrome_driver, chrome_options=options)\ndriver.implicitly_wait(10) # seconds\ndriver.get(\"https://www.google.com/maps/\")\n#open browser\n#Go to search route page\ntime.sleep(5)\nrute_btn = driver.find_element(By.XPATH, '//*[@id=\"hArJGc\"]')\nrute_btn.click()\ntime.sleep(5)\n#Go to search route page",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "rute_btn",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "rute_btn = driver.find_element(By.XPATH, '//*[@id=\"hArJGc\"]')\nrute_btn.click()\ntime.sleep(5)\n#Go to search route page\n#fill koordinat form asal\nfill_koordinat_form('//*[@id=\"sb_ifc51\"]/input' , asal_lat_lang)\n#fill koordinat form asal\n#fill koordinat form tujuan\n#because we probably have >1 tujuan, so i using a for loop\ncounter_xpath = 2",
+        "detail": "open_result",
+        "documentation": {}
+    },
+    {
+        "label": "counter_xpath",
+        "kind": 5,
+        "importPath": "open_result",
+        "description": "open_result",
+        "peekOfCode": "counter_xpath = 2\nfor i in list_koordinat_tujuan:\n    xpath = '//*[@id=\"sb_ifc5{}\"]/input'.format(counter_xpath)\n    fill_koordinat_form(xpath, i)\n    counter_xpath = counter_xpath + 1\n    tambah_tujuan()",
+        "detail": "open_result",
+        "documentation": {}
+    }
+]

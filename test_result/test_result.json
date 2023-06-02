@@ -1,0 +1,127 @@
+{
+    "response": {
+        "debug": "output_json_list_order_and_response",
+        "errMsg": "200 - OK",
+        "list_order": [
+            [
+                {
+                    "id_order": "ORDER3",
+                    "jadwal_sampai": "2023-05-29 10:01",
+                    "time_cost": {
+                        "cycle_time": 15,
+                        "load_unload_time": 19,
+                        "time_window_cost": 0,
+                        "total_time_passed": 121,
+                        "travel_time": 87
+                    },
+                    "urutan": 1
+                },
+                {
+                    "id_order": "ORDER1",
+                    "jadwal_sampai": "2023-05-29 12:20",
+                    "time_cost": {
+                        "cycle_time": 15,
+                        "load_unload_time": 12,
+                        "time_window_cost": 0,
+                        "total_time_passed": 260,
+                        "travel_time": 112
+                    },
+                    "urutan": 2
+                },
+                {
+                    "id_order": "ORDER2",
+                    "jadwal_sampai": "2023-05-29 13:59",
+                    "time_cost": {
+                        "cycle_time": 15,
+                        "load_unload_time": 12,
+                        "time_window_cost": 0,
+                        "total_time_passed": 359,
+                        "travel_time": 72
+                    },
+                    "urutan": 3
+                }
+            ],
+            [
+                {
+                    "id_order": "ORDER3",
+                    "jadwal_sampai": "2023-05-29 10:01",
+                    "time_cost": {
+                        "cycle_time": 15,
+                        "load_unload_time": 19,
+                        "time_window_cost": 0,
+                        "total_time_passed": 121,
+                        "travel_time": 87
+                    },
+                    "urutan": 1
+                },
+                {
+                    "id_order": "ORDER2",
+                    "jadwal_sampai": "2023-05-29 13:28",
+                    "time_cost": {
+                        "cycle_time": 15,
+                        "load_unload_time": 12,
+                        "time_window_cost": 0,
+                        "total_time_passed": 328,
+                        "travel_time": 180
+                    },
+                    "urutan": 2
+                },
+                {
+                    "id_order": "ORDER1",
+                    "jadwal_sampai": "2023-05-29 15:07",
+                    "time_cost": {
+                        "cycle_time": 15,
+                        "load_unload_time": 12,
+                        "time_window_cost": 0,
+                        "total_time_passed": 427,
+                        "travel_time": 72
+                    },
+                    "urutan": 3
+                }
+            ],
+            [
+                {
+                    "id_order": "ORDER2",
+                    "jadwal_sampai": "2023-05-29 12:40",
+                    "time_cost": {
+                        "cycle_time": 15,
+                        "load_unload_time": 19,
+                        "time_window_cost": 0,
+                        "total_time_passed": 280,
+                        "travel_time": 246
+                    },
+                    "urutan": 1
+                },
+                {
+                    "id_order": "ORDER3",
+                    "jadwal_sampai": "2023-05-29 16:07",
+                    "time_cost": {
+                        "cycle_time": 15,
+                        "load_unload_time": 12,
+                        "time_window_cost": 0,
+                        "total_time_passed": 487,
+                        "travel_time": 180
+                    },
+                    "urutan": 2
+                },
+                {
+                    "id_order": "ORDER1",
+                    "jadwal_sampai": "2023-05-30 08:00",
+                    "time_cost": {
+                        "cycle_time": 15,
+                        "load_unload_time": 12,
+                        "time_window_cost": 814,
+                        "total_time_passed": 1440,
+                        "travel_time": 112
+                    },
+                    "urutan": 3
+                }
+            ]
+        ],
+        "pickup": {
+            "jadwal_jemput": "2023-05-29 08:00",
+            "nama_perusahaan": "PT A"
+        },
+        "status": "200"
+    }
+}
